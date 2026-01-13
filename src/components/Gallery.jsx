@@ -25,15 +25,15 @@ const Gallery = () => {
     }, [projects]);
 
     return (
-        <section className="py-32 px-6 md:px-12 lg:px-20 relative z-10" id="work">
+        <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-20 relative z-10" id="work">
             <div className="w-full">
-                <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-10">
+                <div className="mb-12 sm:mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-10">
                     <div>
-                        <div className="flex items-center gap-4 mb-3">
+                        <div className="flex items-center gap-3 sm:gap-4 mb-3">
                             <div className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_10px_rgba(255,59,48,0.5)]" />
-                            <span className="text-primary text-xs font-black uppercase tracking-[0.6em] text-glow-red halation">Cinematic Portfolio</span>
+                            <span className="text-primary text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] sm:tracking-[0.6em] text-glow-red halation">Cinematic Portfolio</span>
                         </div>
-                        <h2 className="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.8] text-glow-strong halation">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.8] text-glow-strong halation">
                             Selected <br /> <span className="text-white/10 italic">Archive.</span>
                         </h2>
                     </div>
@@ -50,7 +50,7 @@ const Gallery = () => {
                         <p className="text-gray-500 text-lg">No projects found. Add some from the dashboard!</p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
                         {projects.map((project) => (
                             <ProjectCard
                                 key={project.id}

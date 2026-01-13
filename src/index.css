@@ -76,3 +76,66 @@
         background: rgba(255, 59, 48, 0.3);
     }
 }
+
+/* Mobile Touch Utilities */
+@layer utilities {
+
+    /* Touch-friendly tap targets */
+    .touch-target {
+        @apply min-h-[44px] min-w-[44px];
+    }
+
+    /* Show on touch devices (hover not available) */
+    @media (hover: none) {
+        .touch\:opacity-100 {
+            opacity: 1 !important;
+        }
+
+        .touch\:translate-y-0 {
+            transform: translateY(0) !important;
+        }
+
+        .touch\:visible {
+            visibility: visible !important;
+        }
+    }
+
+    /* Reduced motion for better performance */
+    @media (prefers-reduced-motion: reduce) {
+        .motion-reduce\:transition-none {
+            transition: none !important;
+        }
+
+        .motion-reduce\:animate-none {
+            animation: none !important;
+        }
+
+        .motion-reduce\:transform-none {
+            transform: none !important;
+        }
+    }
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 640px) {
+
+    /* Reduce blur effects for mobile performance */
+    .backdrop-blur-md,
+    .backdrop-blur-xl,
+    .backdrop-blur-2xl,
+    .backdrop-blur-3xl {
+        backdrop-filter: blur(10px);
+    }
+
+    /* Smoother scrolling */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent text size adjustment */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}

@@ -187,7 +187,7 @@ const Resume = () => {
     };
 
     return (
-        <section className="py-20 sm:py-32 px-4 sm:px-12 lg:px-20 relative min-h-screen flex flex-col justify-center overflow-hidden bg-black" id="resume">
+        <section className="py-12 sm:py-20 md:py-32 px-3 sm:px-6 md:px-12 lg:px-20 relative min-h-screen flex flex-col justify-center overflow-hidden bg-black" id="resume">
             {/* Ambient System Grid */}
             <div className="absolute inset-0 pointer-events-none opacity-20">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
@@ -196,31 +196,32 @@ const Resume = () => {
 
             <div className="w-full relative z-10 text-left">
                 {/* Global Command Header */}
-                <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-8 sm:gap-12 mb-16 sm:mb-32 px-0 sm:px-4">
-                    <div className="max-w-3xl space-y-6">
+                <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-16 md:mb-32 px-0 sm:px-4">
+                    <div className="max-w-3xl space-y-4 sm:space-y-6">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            className="flex items-center gap-3"
+                            className="flex items-center gap-2 sm:gap-3"
                         >
-                            <div className="w-8 h-[1px] bg-primary shadow-[0_0_10px_rgba(255,59,48,0.5)]" />
-                            <span className="text-primary text-[10px] font-black uppercase tracking-[0.6em] halation">Intelligence System // V.04</span>
+                            <div className="w-6 sm:w-8 h-[1px] bg-primary shadow-[0_0_10px_rgba(255,59,48,0.5)]" />
+                            <span className="text-primary text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] sm:tracking-[0.6em] halation">Intelligence System // V.04</span>
                         </motion.div>
 
-                        <h2 className="text-[clamp(2.5rem,10vw,8rem)] font-black text-white uppercase tracking-tighter leading-[0.8] mb-4 shadow-black drop-shadow-2xl">
+                        <h2 className="text-[clamp(2rem,8vw,8rem)] font-black text-white uppercase tracking-tighter leading-[0.8] mb-2 sm:mb-4 shadow-black drop-shadow-2xl">
                             MASTER<br />
                             <span className="text-white/20 hover:text-white transition-colors duration-1000 cursor-default">DOSSIER.</span>
                         </h2>
 
-                        <p className="text-gray-500 text-xs md:text-sm font-medium uppercase tracking-[0.2em] leading-relaxed max-w-xl border-l border-white/10 pl-6">
+                        <p className="text-gray-500 text-[10px] sm:text-xs md:text-sm font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-relaxed max-w-xl border-l border-white/10 pl-4 sm:pl-6">
                             Authorized personnel only. Accessing fully consolidated professional intelligence for <span className="text-white">Baraa Basim</span>.
                         </p>
                     </div>
 
                     <motion.button
                         whileHover={{ scale: 1.02, x: -5 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={handleDownloadPDF}
-                        className="group flex items-center gap-4 px-8 sm:px-10 py-5 bg-white text-black rounded-2xl transition-all font-black uppercase tracking-widest text-[9px] sm:text-[10px] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                        className="group flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 md:px-10 py-4 sm:py-5 bg-white text-black rounded-xl sm:rounded-2xl transition-all font-black uppercase tracking-widest text-[9px] sm:text-[10px] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] touch-target w-full sm:w-auto"
                     >
                         <Download size={16} className="group-hover:translate-y-1 transition-transform" />
                         <span>Export Intelligence Report</span>
@@ -228,7 +229,7 @@ const Resume = () => {
                 </div>
 
                 {/* Grid Layer 1: Core Profile */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-12 mb-6 sm:mb-8 md:mb-12">
 
                     {/* Strategic Identity */}
                     <div className="lg:col-span-12 xl:col-span-4 h-full">
@@ -236,41 +237,41 @@ const Resume = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] relative overflow-hidden group h-full"
+                            className="bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden group h-full"
                         >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full group-hover:bg-primary/20 transition-all pointer-events-none" />
 
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="p-4 bg-primary/10 rounded-2xl">
-                                    <User className="text-primary" size={24} />
+                            <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                                <div className="p-3 sm:p-4 bg-primary/10 rounded-xl sm:rounded-2xl">
+                                    <User className="text-primary" size={20} />
                                 </div>
-                                <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter italic">Strategic Identity</h3>
+                                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tighter italic">Strategic Identity</h3>
                             </div>
 
-                            <div className="space-y-8">
-                                <div className="space-y-4">
-                                    <p className="text-xl md:text-2xl text-white font-black leading-tight uppercase tracking-tighter">
+                            <div className="space-y-6 sm:space-y-8">
+                                <div className="space-y-3 sm:space-y-4">
+                                    <p className="text-lg sm:text-xl md:text-2xl text-white font-black leading-tight uppercase tracking-tighter">
                                         {professional_title}
                                     </p>
-                                    <div className="h-px w-20 bg-primary/30" />
+                                    <div className="h-px w-16 sm:w-20 bg-primary/30" />
                                 </div>
 
-                                <p className="text-gray-400 text-base leading-relaxed font-medium">
+                                <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-medium">
                                     {bio_detailed}
                                 </p>
 
-                                <div className="grid grid-cols-2 gap-4 mt-8">
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
                                     {[
                                         { icon: Globe, label: "Origin", val: "Iraq" },
                                         { icon: Target, label: "Objective", val: "Innovation" },
                                         { icon: Shield, label: "Identity", val: "Verified" },
                                         { icon: Award, label: "Status", val: "Active" }
                                     ].map((stat, i) => (
-                                        <div key={i} className="bg-white/[0.02] border border-white/5 p-6 rounded-2xl flex flex-col gap-2">
-                                            <stat.icon className="text-primary/40" size={16} />
+                                        <div key={i} className="bg-white/[0.02] border border-white/5 p-4 sm:p-6 rounded-xl sm:rounded-2xl flex flex-col gap-2">
+                                            <stat.icon className="text-primary/40" size={14} />
                                             <div>
-                                                <p className="text-[8px] text-gray-600 font-black uppercase tracking-widest">{stat.label}</p>
-                                                <p className="text-white text-[10px] font-black uppercase tracking-widest">{stat.val}</p>
+                                                <p className="text-[7px] sm:text-[8px] text-gray-600 font-black uppercase tracking-widest">{stat.label}</p>
+                                                <p className="text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest">{stat.val}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -280,15 +281,15 @@ const Resume = () => {
                     </div>
 
                     {/* Operational History */}
-                    <div className="lg:col-span-12 xl:col-span-8 space-y-8">
-                        <div className="flex items-center gap-4 mb-4 px-4">
-                            <div className="p-3 bg-primary/10 rounded-xl">
-                                <Briefcase className="text-primary" size={20} />
+                    <div className="lg:col-span-12 xl:col-span-8 space-y-6 sm:space-y-8">
+                        <div className="flex items-center gap-3 sm:gap-4 mb-2 sm:mb-4 px-2 sm:px-4">
+                            <div className="p-2 sm:p-3 bg-primary/10 rounded-lg sm:rounded-xl">
+                                <Briefcase className="text-primary" size={18} />
                             </div>
-                            <h3 className="text-3xl font-black text-white uppercase tracking-tighter">Operational History</h3>
+                            <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter">Operational History</h3>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             {experience.map((job, index) => (
                                 <motion.div
                                     key={job.id}
@@ -296,22 +297,22 @@ const Resume = () => {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="group bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-8 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] hover:bg-white/[0.04] hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col"
+                                    className="group bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-10 rounded-xl sm:rounded-[2rem] md:rounded-[2.5rem] hover:bg-white/[0.04] hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col"
                                 >
-                                    <div className="flex flex-col gap-4 mb-6">
+                                    <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                                         <div>
-                                            <div className="flex items-center gap-3 mb-3">
+                                            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                                                 <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(255,59,48,0.8)]" />
-                                                <span className="text-primary text-[9px] font-mono tracking-[0.3em] font-black uppercase">{job.period}</span>
+                                                <span className="text-primary text-[8px] sm:text-[9px] font-mono tracking-[0.2em] sm:tracking-[0.3em] font-black uppercase">{job.period}</span>
                                             </div>
-                                            <h4 className="text-3xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
+                                            <h4 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
                                                 {job.role}
                                             </h4>
-                                            <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] mt-2">{job.company}</p>
+                                            <p className="text-gray-500 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-1 sm:mt-2">{job.company}</p>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-400 text-sm leading-relaxed font-medium opacity-60 group-hover:opacity-100 transition-opacity">
+                                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed font-medium opacity-80 sm:opacity-60 group-hover:opacity-100 transition-opacity">
                                         {job.description}
                                     </p>
                                 </motion.div>
@@ -319,15 +320,15 @@ const Resume = () => {
                         </div>
 
                         {/* Technical Arsenal - Moved Under Operational History */}
-                        <div className="pt-20 border-t border-white/5 space-y-8 mt-12">
-                            <div className="flex items-center gap-4 mb-4 px-4">
-                                <div className="p-3 bg-primary/10 rounded-xl">
-                                    <Cpu className="text-primary" size={20} />
+                        <div className="pt-10 sm:pt-16 md:pt-20 border-t border-white/5 space-y-6 sm:space-y-8 mt-6 sm:mt-8 md:mt-12">
+                            <div className="flex items-center gap-3 sm:gap-4 mb-2 sm:mb-4 px-2 sm:px-4">
+                                <div className="p-2 sm:p-3 bg-primary/10 rounded-lg sm:rounded-xl">
+                                    <Cpu className="text-primary" size={18} />
                                 </div>
-                                <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter">Technical Arsenal</h3>
+                                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tighter">Technical Arsenal</h3>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                 {skills.map((group, index) => (
                                     <motion.div
                                         key={group.id}
@@ -335,22 +336,22 @@ const Resume = () => {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.05 }}
-                                        className="group bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-10 rounded-[2.5rem] hover:bg-white/[0.04] hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col h-full"
+                                        className="group bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-10 rounded-xl sm:rounded-[2rem] md:rounded-[2.5rem] hover:bg-white/[0.04] hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col h-full"
                                     >
-                                        <div className="flex flex-col gap-4 mb-6">
+                                        <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(255,59,48,0.8)]" />
-                                                <h4 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
+                                                <h4 className="text-lg sm:text-xl md:text-2xl font-black text-white uppercase tracking-tighter leading-none group-hover:text-primary transition-colors">
                                                     {group.category.replace('_', ' ')}
                                                 </h4>
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-wrap gap-2.5 mt-auto">
+                                        <div className="flex flex-wrap gap-2 sm:gap-2.5 mt-auto">
                                             {group.items.map((skill, sIdx) => (
                                                 <span
                                                     key={sIdx}
-                                                    className="px-4 py-2 bg-black/40 border border-white/10 rounded-xl text-[10px] font-black text-gray-400 hover:text-white hover:border-primary/40 transition-all uppercase tracking-[0.2em] cursor-default flex items-center gap-2"
+                                                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-black/40 border border-white/10 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black text-gray-400 hover:text-white hover:border-primary/40 transition-all uppercase tracking-[0.1em] sm:tracking-[0.2em] cursor-default flex items-center gap-1.5 sm:gap-2"
                                                 >
                                                     <div className="w-1 h-1 bg-primary/30 rounded-full" />
                                                     {skill}
@@ -369,40 +370,40 @@ const Resume = () => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-12 bg-white/[0.01] border border-white/5 p-8 sm:p-12 lg:p-20 rounded-[2.5rem] sm:rounded-[4rem] relative overflow-hidden"
+                    className="mb-6 sm:mb-8 md:mb-12 bg-white/[0.01] border border-white/5 p-5 sm:p-8 md:p-12 lg:p-20 rounded-2xl sm:rounded-[2.5rem] md:rounded-[4rem] relative overflow-hidden"
                 >
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
 
-                    <div className="flex flex-col xl:flex-row gap-20">
+                    <div className="flex flex-col xl:flex-row gap-10 sm:gap-16 md:gap-20">
                         {/* Header & Visionary Stats */}
-                        <div className="xl:w-1/3 space-y-12">
-                            <div className="space-y-6">
-                                <div className="flex items-center gap-3">
+                        <div className="xl:w-1/3 space-y-8 sm:space-y-12">
+                            <div className="space-y-4 sm:space-y-6">
+                                <div className="flex items-center gap-2 sm:gap-3">
                                     <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-                                    <span className="text-primary text-[10px] font-black uppercase tracking-[0.6em]">Visionary Parameters // Strategic Output</span>
+                                    <span className="text-primary text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] sm:tracking-[0.6em]">Visionary Parameters // Strategic Output</span>
                                 </div>
-                                <h3 className="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none">
+                                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-none">
                                     Strategic <br /><span className="text-white/20 italic">Intelligence.</span>
                                 </h3>
-                                <p className="text-gray-500 text-sm leading-relaxed uppercase tracking-widest font-medium opacity-60">
+                                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed uppercase tracking-widest font-medium opacity-60">
                                     A unified quantification of creative architecture and technical mastery, summarizing the core philosophical and operational drive.
                                 </p>
                             </div>
 
-                            <div className="grid grid-cols-1 gap-8">
+                            <div className="grid grid-cols-1 gap-6 sm:gap-8">
                                 {[
                                     { label: "Narrative Depth", pct: "95%", desc: "Emotional resonance and structural complexity." },
                                     { label: "AI Creative Integration", pct: "98%", desc: "Neural network efficiency in creative workflows." },
                                     { label: "Cinematographic Fidelity", pct: "92%", desc: "Visual precision and technical execution protocols." },
                                     { label: "Director's Vision", pct: "100%", desc: "Absolute adherence to primary objectives." }
                                 ].map((stat, i) => (
-                                    <div key={i} className="space-y-4 group">
-                                        <div className="flex justify-between items-end">
-                                            <div className="space-y-1">
-                                                <span className="text-xs font-black text-white uppercase tracking-widest group-hover:text-primary transition-colors">{stat.label}</span>
-                                                <p className="text-[8px] text-gray-600 font-bold uppercase tracking-widest">{stat.desc}</p>
+                                    <div key={i} className="space-y-3 sm:space-y-4 group">
+                                        <div className="flex justify-between items-end gap-2">
+                                            <div className="space-y-0.5 sm:space-y-1 flex-1 min-w-0">
+                                                <span className="text-[10px] sm:text-xs font-black text-white uppercase tracking-widest group-hover:text-primary transition-colors block truncate">{stat.label}</span>
+                                                <p className="text-[7px] sm:text-[8px] text-gray-600 font-bold uppercase tracking-widest truncate">{stat.desc}</p>
                                             </div>
-                                            <span className="text-xl font-black text-primary font-mono">{stat.pct}</span>
+                                            <span className="text-lg sm:text-xl font-black text-primary font-mono flex-shrink-0">{stat.pct}</span>
                                         </div>
                                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                                             <motion.div
@@ -419,13 +420,13 @@ const Resume = () => {
 
                         {/* Technical Mastery Dashboard */}
                         <div className="xl:w-2/3">
-                            <div className="bg-black/40 backdrop-blur-3xl border border-white/5 p-8 sm:p-10 md:p-16 rounded-[2rem] sm:rounded-[3rem] h-full flex flex-col justify-center">
-                                <div className="flex items-center gap-3 mb-12">
+                            <div className="bg-black/40 backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-12 lg:p-16 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] h-full flex flex-col justify-center">
+                                <div className="flex items-center gap-2 sm:gap-3 mb-8 sm:mb-12">
                                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                                    <h4 className="text-xl font-black text-white uppercase tracking-tighter">Technical Mastery Index</h4>
+                                    <h4 className="text-lg sm:text-xl font-black text-white uppercase tracking-tighter">Technical Mastery Index</h4>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 sm:gap-x-12 md:gap-x-16 gap-y-8 sm:gap-y-12">
                                     {skills.map((group, i) => {
                                         const ratings = {
                                             'AI Creative Suite': '98%',
@@ -437,13 +438,13 @@ const Resume = () => {
                                         const pct = ratings[group.category] || ratings['default'];
 
                                         return (
-                                            <div key={group.id} className="space-y-6">
-                                                <div className="flex justify-between items-end">
-                                                    <div className="space-y-1">
-                                                        <span className="text-primary font-mono text-[10px]">{`0${i + 1}.`}</span>
-                                                        <p className="text-xs font-black text-white uppercase tracking-widest">{group.category.replace('_', ' ')}</p>
+                                            <div key={group.id} className="space-y-4 sm:space-y-6">
+                                                <div className="flex justify-between items-end gap-2">
+                                                    <div className="space-y-0.5 sm:space-y-1 min-w-0">
+                                                        <span className="text-primary font-mono text-[9px] sm:text-[10px]">{`0${i + 1}.`}</span>
+                                                        <p className="text-[10px] sm:text-xs font-black text-white uppercase tracking-widest truncate">{group.category.replace('_', ' ')}</p>
                                                     </div>
-                                                    <span className="text-2xl font-black text-white/40 font-mono tracking-tighter">{pct}</span>
+                                                    <span className="text-xl sm:text-2xl font-black text-white/40 font-mono tracking-tighter flex-shrink-0">{pct}</span>
                                                 </div>
                                                 <div className="h-[2px] w-full bg-white/5 relative">
                                                     <motion.div
@@ -452,10 +453,10 @@ const Resume = () => {
                                                         transition={{ duration: 2, delay: i * 0.2, ease: [0.16, 1, 0.3, 1] }}
                                                         className="h-full bg-gradient-to-r from-primary to-red-600 shadow-[0_0_20px_rgba(255,59,48,0.4)] relative"
                                                     >
-                                                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-white shadow-[0_0_10px_#fff]" />
+                                                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-3 sm:h-4 bg-white shadow-[0_0_10px_#fff]" />
                                                     </motion.div>
                                                 </div>
-                                                <p className="text-[8px] text-gray-600 font-black uppercase tracking-[0.2em]">
+                                                <p className="text-[7px] sm:text-[8px] text-gray-600 font-black uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                                                     Operational Index: Optimized
                                                 </p>
                                             </div>

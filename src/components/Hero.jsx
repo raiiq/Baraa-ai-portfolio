@@ -25,14 +25,14 @@ const Hero = () => {
     };
 
     return (
-        <div id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-20">
+        <div id="hero" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-16 sm:pt-20 pb-8 sm:pb-0">
             {/* Background Atmosphere - Gallery Style Bloom Flare */}
             <div className="absolute inset-0 z-0">
                 {/* Intense Red Bloom Flare */}
-                <div className="absolute -bottom-[20%] -left-[20%] w-[140%] h-[140%] bg-[radial-gradient(circle_at_bottom_left,rgba(255,59,48,0.12)_0%,transparent_70%)] blur-[120px] animate-pulse" />
+                <div className="absolute -bottom-[20%] -left-[20%] w-[140%] h-[140%] bg-[radial-gradient(circle_at_bottom_left,rgba(255,59,48,0.12)_0%,transparent_70%)] blur-[80px] sm:blur-[120px] animate-pulse" />
 
                 {/* Secondary White Ambient Bloom */}
-                <div className="absolute -top-[10%] -right-[10%] w-[120%] h-[120%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.02)_0%,transparent_60%)] blur-[100px]" />
+                <div className="absolute -top-[10%] -right-[10%] w-[120%] h-[120%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.02)_0%,transparent_60%)] blur-[60px] sm:blur-[100px]" />
 
                 {/* Fixed Radial Center Atmosphere */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,59,48,0.03)_0%,transparent_70%)] opacity-50" />
@@ -43,32 +43,41 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-20 flex flex-col items-center text-center px-6 max-w-6xl"
+                className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 max-w-6xl"
             >
-                <div className="flex items-center gap-4 mb-8">
-                    <div className="h-[2px] w-12 bg-primary shadow-[0_0_15px_rgba(255,59,48,0.6)]" />
-                    <span className="text-primary text-xs font-black uppercase tracking-[0.5em] text-glow-red halation">
+                {/* Accent line - hidden on very small screens */}
+                <div className="hidden sm:flex items-center gap-4 mb-6 sm:mb-8">
+                    <div className="h-[2px] w-8 sm:w-12 bg-primary shadow-[0_0_15px_rgba(255,59,48,0.6)]" />
+                    <span className="text-primary text-[9px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-glow-red halation">
                         Cinematic Intelligence Analyst
                     </span>
-                    <div className="h-[2px] w-12 bg-primary shadow-[0_0_15px_rgba(255,59,48,0.6)]" />
+                    <div className="h-[2px] w-8 sm:w-12 bg-primary shadow-[0_0_15px_rgba(255,59,48,0.6)]" />
                 </div>
 
-                <h1 className="text-[clamp(3.5rem,15vw,10rem)] font-black text-white leading-[0.85] tracking-tighter uppercase text-glow-strong halation mb-10">
+                {/* Mobile-only label */}
+                <div className="flex sm:hidden items-center gap-2 mb-4">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+                    <span className="text-primary text-[9px] font-black uppercase tracking-[0.3em] text-glow-red halation">
+                        Cinematic Intelligence
+                    </span>
+                </div>
+
+                <h1 className="text-[clamp(2.5rem,12vw,10rem)] font-black text-white leading-[0.85] tracking-tighter uppercase text-glow-strong halation mb-6 sm:mb-10">
                     BARAA <br />
                     <span className="text-white/10 hover:text-white transition-colors duration-1000">BASIM.</span>
                 </h1>
 
-                <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 mb-10 sm:mb-14 max-w-2xl font-medium leading-relaxed uppercase tracking-[0.2em] sm:tracking-[0.4em] opacity-60 px-4">
+                <p className="text-[9px] sm:text-xs md:text-sm text-gray-400 mb-8 sm:mb-10 md:mb-14 max-w-2xl font-medium leading-relaxed uppercase tracking-[0.15em] sm:tracking-[0.3em] md:tracking-[0.4em] opacity-60 px-2 sm:px-4">
                     {settings?.professional_title || "18-Year-Old Filmmaker / AI Prompt Engineer / Creative Director"} <br />
                     {settings?.hero_bio || "Iraq-Based Visionary crafting cutting-edge cinematic sequences."}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-6 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 w-full sm:w-auto px-2 sm:px-0">
                     <motion.button
                         whileHover={{ scale: 1.05, y: -5 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setShowreelOpen(true)}
-                        className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 bg-white text-black font-black rounded-2xl transition-all shadow-2xl hover:shadow-primary/40 uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center gap-3 border border-white"
+                        className="w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 bg-white text-black font-black rounded-xl sm:rounded-2xl transition-all shadow-2xl hover:shadow-primary/40 uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center gap-3 border border-white touch-target"
                     >
                         <Play className="w-4 h-4 fill-current" />
                         <span>Initialize showreel</span>
@@ -79,14 +88,14 @@ const Hero = () => {
                             const el = document.getElementById('resume');
                             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }}
-                        className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 bg-white/[0.05] border border-white/10 hover:border-white/20 text-white font-black rounded-2xl transition-all backdrop-blur-md uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center"
+                        className="w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 bg-white/[0.05] border border-white/10 hover:border-white/20 text-white font-black rounded-xl sm:rounded-2xl transition-all backdrop-blur-md uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center touch-target"
                     >
                         Access Dossier
                     </button>
 
                     <button
                         onClick={scrollToWork}
-                        className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 bg-black border border-white/5 hover:border-white/10 text-gray-500 font-black rounded-2xl transition-all uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center"
+                        className="w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 bg-black border border-white/5 hover:border-white/10 text-gray-500 font-black rounded-xl sm:rounded-2xl transition-all uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center touch-target"
                     >
                         Operational Archive
                     </button>
