@@ -72,29 +72,31 @@ const ProjectCard = ({ project, onClick }) => {
                 <div className="hidden sm:block absolute top-10 left-10 w-[1px] h-8 bg-white/20 group-hover:bg-primary shadow-[0_0_15px_rgba(255,59,48,0.4)] transition-all duration-700 group-hover:h-16" />
 
                 <div className="relative z-30 translate-y-0 sm:translate-y-6 group-hover:translate-y-0 transition-all duration-700">
-                    <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 transform translate-x-0 sm:-translate-x-6 sm:group-hover:translate-x-0">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_10px_rgba(255,59,48,0.8)]" />
-                        <span className="text-[8px] sm:text-[10px] font-mono font-black text-primary uppercase tracking-[0.4em] sm:tracking-[0.6em] text-glow-red halation">
-                            MISSION_ARCHIVE //
-                        </span>
-                        <span className="text-[8px] sm:text-[10px] font-mono font-black text-white/40 uppercase tracking-[0.4em] sm:tracking-[0.6em]">
-                            00{project.id}
-                        </span>
+                    {/* Refined Label Hierarchy */}
+                    <div className="flex flex-col gap-1 mb-3 sm:mb-5">
+                        <div className="flex items-center gap-2 sm:gap-4 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 transform translate-x-0 sm:-translate-x-6 sm:group-hover:translate-x-0">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_10px_rgba(255,59,48,0.8)]" />
+                            <span className="text-[8px] sm:text-[10px] font-mono font-black text-primary uppercase tracking-[0.4em] sm:tracking-[0.6em] text-glow-red halation">
+                                MISSION_ARCHIVE // 00{project.id}
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-2 sm:gap-3 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 delay-75 transform translate-x-0 sm:-translate-x-4 sm:group-hover:translate-x-0">
+                            <span className="text-[10px] sm:text-xs font-black text-white/40 uppercase tracking-[0.3em] font-mono">CATEGORY /</span>
+                            <span className="text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.3em] halation">{project.category}</span>
+                        </div>
                     </div>
 
                     <h3
-                        className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.1] uppercase tracking-tight mb-4 sm:mb-6 text-glow-strong halation break-words"
+                        className="text-xl sm:text-3xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tighter mb-5 sm:mb-8 text-glow-strong halation break-words"
                         style={{ fontFamily: project.font || 'IBM Plex Sans Arabic' }}
                     >
-                        <span className="text-primary text-glow-red halation">{project.category}</span>
-                        <span className="mx-2 sm:mx-4 text-white/10 font-thin tracking-widest">//</span>
                         {project.title}
                     </h3>
 
-                    <div className="flex flex-wrap items-center gap-4 sm:gap-10 md:gap-12 pt-4 sm:pt-6 border-t border-white/10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-1000 delay-150">
-                        <div className="space-y-0.5 sm:space-y-1">
+                    <div className="flex flex-wrap items-center gap-6 sm:gap-12 md:gap-14 pt-5 sm:pt-8 border-t border-white/10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-1000 delay-150">
+                        <div className="space-y-1 sm:space-y-2">
                             <span className="block text-[7px] sm:text-[8px] font-mono text-gray-500 uppercase tracking-[0.4em]">Designation.</span>
-                            <span className="block text-[9px] sm:text-[10px] font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">{project.role}</span>
+                            <span className="block text-[10px] sm:text-xs font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">{project.role}</span>
                         </div>
                         <div className="hidden md:block space-y-1 border-l border-white/10 pl-10">
                             <span className="block text-[8px] font-mono text-gray-500 uppercase tracking-[0.4em]">Cinematics.</span>
