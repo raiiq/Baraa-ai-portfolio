@@ -184,9 +184,10 @@ const Navbar = () => {
 
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="lg:hidden p-3 bg-white/[0.03] backdrop-blur-[80px] border border-white/10 rounded-full text-white pointer-events-auto"
+                                className="lg:hidden p-4 bg-white/[0.03] backdrop-blur-[80px] border border-white/10 rounded-full text-white pointer-events-auto touch-manipulation active:scale-90 transition-transform"
+                                aria-label="Toggle menu"
                             >
-                                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                                {isMobileMenuOpen ? <X size={22} strokeWidth={2.5} /> : <Menu size={22} strokeWidth={2.5} />}
                             </button>
                         </div>
                     ) : (
@@ -236,9 +237,10 @@ const Navbar = () => {
 
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="lg:hidden p-3 bg-white/[0.03] backdrop-blur-[80px] border border-white/10 rounded-full text-white pointer-events-auto"
+                                className="lg:hidden p-4 bg-white/[0.03] backdrop-blur-[80px] border border-white/10 rounded-full text-white pointer-events-auto touch-manipulation active:scale-90 transition-transform"
+                                aria-label="Toggle menu"
                             >
-                                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                                {isMobileMenuOpen ? <X size={22} strokeWidth={2.5} /> : <Menu size={22} strokeWidth={2.5} />}
                             </button>
 
                             {/* Enhanced Dropdown */}
@@ -312,9 +314,10 @@ const Navbar = () => {
                         {/* Close button inside overlay */}
                         <button
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="absolute top-6 right-6 p-4 text-white hover:text-primary transition-colors"
+                            className="absolute top-6 right-6 p-4 text-white hover:text-primary transition-colors z-50 touch-manipulation active:scale-90"
+                            aria-label="Close menu"
                         >
-                            <X size={32} />
+                            <X size={32} strokeWidth={2.5} />
                         </button>
 
                         <div className="flex flex-col items-center justify-center flex-1 gap-8 p-10">
