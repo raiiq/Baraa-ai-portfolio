@@ -372,6 +372,13 @@ const Navbar = () => {
                                         <span>INITIALIZE SYSTEM ACCESS</span>
                                     </button>
                                 )}
+                                <Link
+                                    to="/admin"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="w-full py-4 bg-white/5 border border-white/10 text-white text-center font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white/10 transition-all"
+                                >
+                                    SYSTEM CONSOLE
+                                </Link>
                             </div>
                         </div>
                     </motion.div>
