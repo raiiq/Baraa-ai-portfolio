@@ -4,9 +4,14 @@ import { motion, useSpring, useMotionValue, useTransform } from 'framer-motion';
 const LiquidBackground = () => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
 
     // Smooth spring physics for mouse tracking
-    const springConfig = { damping: 30, stiffness: 100 };
+    const springConfig = { damping: 40, stiffness: 80 };
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
 

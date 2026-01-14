@@ -13,7 +13,8 @@ const GlobalWormhole = () => {
 
         let animationFrameId;
         const isMobile = window.innerWidth < 768;
-        const PARTICLE_COUNT = isMobile ? 80 : 250;
+        // 60FPS Mobile Optimization Tier: 2026-01-14-17:01
+        const PARTICLE_COUNT = isMobile ? 50 : 250;
         const FOCUS_STRENGTH = isMobile ? 0.001 : 0.002; // Dampen even more on mobile
 
         const resizeCanvas = () => {
@@ -48,15 +49,8 @@ const GlobalWormhole = () => {
             return { px, py, factor };
         };
 
-        let frameCount = 0;
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
-
-            // Frame skipping on mobile to maintain 30fps stability without flickering
-            if (isMobile) {
-                frameCount++;
-                if (frameCount % 2 === 0) return;
-            }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
