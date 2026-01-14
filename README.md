@@ -1,16 +1,39 @@
-# React + Vite
+# Baraa Basim Cinematic Portfolio & CMS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-fidelity, cinematic portfolio website built with React, Framer Motion, and Tailwind CSS, integrated with a custom-built Supabase Admin Dashboard for real-time content management.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cinematic Experience**: Immersive animations, liquid backgrounds, and glassmorphic UI.
+- **Dynamic Content**: Managed via a dedicated Admin Console (`/admin`).
+- **Supabase Integration**: Persistent data storage and real-time updates for projects, experience, and skills.
+- **Mobile Optimized**: Fully responsive precision interface.
+- **QR Broadcast**: Quick-access node sharing via generated QR codes.
 
-## React Compiler
+## 🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React.js, Vite, Framer Motion, Tailwind CSS
+- **Backend/DB**: Supabase (PostgreSQL)
+- **Icons**: Lucide React
+- **Authentication**: Supabase Auth
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/components/`: Core UI components (Hero, Gallery, Resume, etc.)
+- `src/components/Dashboard.jsx`: The "Command Center" CMS for administration.
+- `src/context/`: Auth and Data providers for state management.
+- `src/supabase.js`: Supabase client configuration.
+
+## 🛠️ Local Development
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Create a `.env` file with your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_url
+   VITE_SUPABASE_ANON_KEY=your_key
+   ```
+4. Run the development server: `npm run dev`
+
+---
+*Created with Precision by Baraa Basim*
