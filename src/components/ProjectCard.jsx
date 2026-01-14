@@ -64,15 +64,15 @@ const ProjectCard = ({ project, onClick }) => {
             </div>
 
             {/* HUD Overlay Slab */}
-            <div className="absolute inset-0 z-20 flex flex-col justify-end p-5 sm:p-8 md:p-12 pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6 md:p-8 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 sm:opacity-60 sm:group-hover:opacity-100 transition-opacity duration-700" />
 
                 {/* Technical HUD Accents - Refined Tablet Response */}
                 <div className="hidden sm:block absolute top-10 left-10 w-8 h-[1px] bg-white/20 group-hover:bg-primary shadow-[0_0_15px_rgba(255,59,48,0.4)] transition-all duration-700 group-hover:w-16" />
                 <div className="hidden sm:block absolute top-10 left-10 w-[1px] h-8 bg-white/20 group-hover:bg-primary shadow-[0_0_15px_rgba(255,59,48,0.4)] transition-all duration-700 group-hover:h-16" />
 
-                <div className="relative z-30 translate-y-0 sm:translate-y-8 group-hover:translate-y-0 transition-all duration-700">
-                    <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 transform translate-x-0 sm:-translate-x-6 sm:group-hover:translate-x-0">
+                <div className="relative z-30 translate-y-0 sm:translate-y-6 group-hover:translate-y-0 transition-all duration-700">
+                    <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 transform translate-x-0 sm:-translate-x-6 sm:group-hover:translate-x-0">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_10px_rgba(255,59,48,0.8)]" />
                         <span className="text-[8px] sm:text-[10px] font-mono font-black text-primary uppercase tracking-[0.4em] sm:tracking-[0.6em] text-glow-red halation">
                             MISSION_ARCHIVE //
@@ -83,27 +83,27 @@ const ProjectCard = ({ project, onClick }) => {
                     </div>
 
                     <h3
-                        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[0.9] uppercase tracking-tighter mb-4 sm:mb-8 text-glow-strong halation"
+                        className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[1.1] uppercase tracking-tight mb-4 sm:mb-6 text-glow-strong halation break-words"
                         style={{ fontFamily: project.font || 'IBM Plex Sans Arabic' }}
                     >
                         <span className="text-primary text-glow-red halation">{project.category}</span>
-                        <span className="mx-3 sm:mx-5 text-white/5 font-thin tracking-widest">//</span>
+                        <span className="mx-2 sm:mx-4 text-white/10 font-thin tracking-widest">//</span>
                         {project.title}
                     </h3>
 
-                    <div className="flex flex-wrap items-center gap-6 sm:gap-12 md:gap-16 pt-5 sm:pt-8 border-t border-white/10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-1000 delay-150">
-                        <div className="space-y-1 sm:space-y-2">
+                    <div className="flex flex-wrap items-center gap-4 sm:gap-10 md:gap-12 pt-4 sm:pt-6 border-t border-white/10 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-1000 delay-150">
+                        <div className="space-y-0.5 sm:space-y-1">
                             <span className="block text-[7px] sm:text-[8px] font-mono text-gray-500 uppercase tracking-[0.4em]">Designation.</span>
-                            <span className="block text-[10px] sm:text-xs font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">{project.role}</span>
+                            <span className="block text-[9px] sm:text-[10px] font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">{project.role}</span>
                         </div>
-                        <div className="hidden md:block space-y-2 border-l border-white/10 pl-12">
+                        <div className="hidden md:block space-y-1 border-l border-white/10 pl-10">
                             <span className="block text-[8px] font-mono text-gray-500 uppercase tracking-[0.4em]">Cinematics.</span>
                             <span className="block text-[10px] font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">High Fidelity Optic</span>
                         </div>
                         {project.release_date && (
-                            <div className="space-y-1 sm:space-y-2 border-l border-white/10 pl-6 sm:pl-12">
+                            <div className="space-y-0.5 sm:space-y-1 border-l border-white/10 pl-4 sm:pl-10">
                                 <span className="block text-[7px] sm:text-[8px] font-mono text-gray-500 uppercase tracking-[0.4em]">Archived.</span>
-                                <span className="block text-[10px] sm:text-xs font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">
+                                <span className="block text-[9px] sm:text-[10px] font-black text-white uppercase tracking-[0.2em] group-hover:text-primary/90 transition-colors">
                                     {new Date(project.release_date).toLocaleDateString('en-US', { year: 'numeric' })}
                                 </span>
                             </div>
