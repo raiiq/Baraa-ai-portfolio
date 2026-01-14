@@ -29,13 +29,13 @@ const Hero = () => {
             {/* Background Atmosphere - Gallery Style Bloom Flare */}
             <div className="absolute inset-0 z-0">
                 {/* Intense Red Bloom Flare */}
-                <div className="absolute -bottom-[20%] -left-[20%] w-[140%] h-[140%] bg-[radial-gradient(circle_at_bottom_left,rgba(255,59,48,0.12)_0%,transparent_70%)] blur-[60px] sm:blur-[120px] will-change-[opacity,transform]" />
+                <div className="absolute -bottom-[20%] -left-[20%] w-[140%] h-[140%] bg-[radial-gradient(circle_at_bottom_left,rgba(255,59,48,0.1)_0%,transparent_70%)] blur-[40px] sm:blur-[120px] will-change-[opacity,transform]" />
 
                 {/* Secondary White Ambient Bloom */}
-                <div className="absolute -top-[10%] -right-[10%] w-[120%] h-[120%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.02)_0%,transparent_60%)] blur-[60px] sm:blur-[100px]" />
+                <div className="absolute -top-[10%] -right-[10%] w-[120%] h-[120%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.01)_0%,transparent_60%)] blur-[40px] sm:blur-[100px]" />
 
                 {/* Fixed Radial Center Atmosphere */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,59,48,0.03)_0%,transparent_70%)] opacity-50" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,59,48,0.02)_0%,transparent_70%)] opacity-30 sm:opacity-50" />
             </div>
 
             {/* Centered Content Slab */}

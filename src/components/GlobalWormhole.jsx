@@ -12,12 +12,15 @@ const GlobalWormhole = () => {
         const ctx = canvas.getContext('2d');
 
         let animationFrameId;
-        const PARTICLE_COUNT = 250;
-        const FOCUS_STRENGTH = 0.002; // Ultra-dampened steering
+        const isMobile = window.innerWidth < 768;
+        const PARTICLE_COUNT = isMobile ? 80 : 250;
+        const FOCUS_STRENGTH = isMobile ? 0.001 : 0.002; // Dampen even more on mobile
 
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
             initParticles();
         };
 
@@ -45,7 +48,16 @@ const GlobalWormhole = () => {
             return { px, py, factor };
         };
 
+        let frameCount = 0;
         const animate = () => {
+            animationFrameId = requestAnimationFrame(animate);
+
+            // Frame skipping on mobile to maintain 30fps stability without flickering
+            if (isMobile) {
+                frameCount++;
+                if (frameCount % 2 === 0) return;
+            }
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Smooth steering toward mouse
@@ -93,8 +105,6 @@ const GlobalWormhole = () => {
                     ctx.stroke();
                 }
             }
-
-            animationFrameId = requestAnimationFrame(animate);
         };
 
         const handleMouseMove = (e) => {
