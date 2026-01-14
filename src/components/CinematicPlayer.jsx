@@ -87,13 +87,45 @@ const CinematicPlayer = ({ videoUrl, title, initialFullscreen }) => {
     const toggleFullscreen = () => {
         if (!playerRef.current) return;
 
-        if (!document.fullscreenElement) {
-            playerRef.current.requestFullscreen().catch(err => {
-                console.error(`Error attempting to enable full-screen mode: ${err.message}`);
-            });
+        // Check for any vendor-prefixed fullscreen element
+        const isCurrentlyFullscreen =
+            document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.mozFullScreenElement ||
+            document.msFullscreenElement;
+
+        if (!isCurrentlyFullscreen) {
+            // Support vendor prefixes for requestFullscreen
+            const requestFS =
+                playerRef.current.requestFullscreen ||
+                playerRef.current.webkitRequestFullscreen ||
+                playerRef.current.mozRequestFullScreen ||
+                playerRef.current.msRequestFullscreen;
+
+            if (requestFS) {
+                try {
+                    requestFS.call(playerRef.current);
+                } catch (err) {
+                    console.warn("Native fullscreen request failed:", err);
+                }
+            }
+            // Always set state for our 'Fixed Inset' CSS fallback
             setIsFullscreen(true);
         } else {
-            document.exitFullscreen();
+            // Support vendor prefixes for exitFullscreen
+            const exitFS =
+                document.exitFullscreen ||
+                document.webkitExitFullscreen ||
+                document.mozCancelFullScreen ||
+                document.msExitFullscreen;
+
+            if (exitFS) {
+                try {
+                    exitFS.call(document);
+                } catch (err) {
+                    console.warn("Native fullscreen exit failed:", err);
+                }
+            }
             setIsFullscreen(false);
         }
     };
@@ -111,19 +143,34 @@ const CinematicPlayer = ({ videoUrl, title, initialFullscreen }) => {
         setIsQualityMenuOpen(false);
     };
 
-    // Listen for fullscreen changes
+    // Listen for fullscreen changes (including prefixes)
     useEffect(() => {
         const handleFullscreenChange = () => {
-            setIsFullscreen(!!document.fullscreenElement);
+            const isPrefixedFullscreen =
+                !!document.fullscreenElement ||
+                !!document.webkitFullscreenElement ||
+                !!document.mozFullScreenElement ||
+                !!document.msFullscreenElement;
+
+            // Only update if it was natively triggered (to sync state)
+            if (isPrefixedFullscreen) setIsFullscreen(true);
         };
         document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
 
         // Auto-fullscreen trigger
         if (initialFullscreen && !isLoading && !document.fullscreenElement) {
             toggleFullscreen();
         }
 
-        return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+            document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+            document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+            document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+        };
     }, [isLoading, initialFullscreen]);
 
     // YouTube-specific message handling
