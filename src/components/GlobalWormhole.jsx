@@ -7,12 +7,14 @@ const GlobalWormhole = () => {
     const particlesRef = useRef([]);
 
     useEffect(() => {
+        const checkMobile = () => window.innerWidth < 768;
+        let isMobile = checkMobile();
+
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
 
         let animationFrameId;
-        const isMobile = window.innerWidth < 768;
         // 60FPS Mobile Optimization Tier: 2026-01-14-17:01
         const PARTICLE_COUNT = isMobile ? 50 : 250;
         const FOCUS_STRENGTH = isMobile ? 0.001 : 0.002; // Dampen even more on mobile

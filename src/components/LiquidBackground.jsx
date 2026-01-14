@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useSpring, useMotionValue, useTransform } from 'framer-motion';
 
 const LiquidBackground = () => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    const [isMobile, setIsMobile] = React.useState(false);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
 
     useEffect(() => {
-        setIsMobile(window.innerWidth < 768);
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     // Smooth spring physics for mouse tracking
