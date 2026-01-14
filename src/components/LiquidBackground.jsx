@@ -34,8 +34,8 @@ const LiquidBackground = () => {
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
             {/* Corner Flare 1: Top-Left */}
             <motion.div
-                style={{ x: layer3X, y: layer3Y }}
-                className="absolute -top-[10%] -left-[10%] w-[40vw] h-[40vw] bg-primary/20 rounded-full blur-[300px] mix-blend-screen"
+                style={{ x: layer3X, y: layer3Y, willChange: 'transform, opacity' }}
+                className="absolute -top-[10%] -left-[10%] w-[40vw] h-[40vw] bg-primary/20 rounded-full blur-[100px] sm:blur-[300px] mix-blend-screen"
                 animate={{
                     opacity: [0.4, 0.7, 0.4],
                     scale: [1, 1.1, 1]
@@ -45,8 +45,8 @@ const LiquidBackground = () => {
 
             {/* Corner Flare 2: Top-Right */}
             <motion.div
-                style={{ x: layer2X, y: layer1Y }}
-                className="absolute -top-[10%] -right-[10%] w-[45vw] h-[45vw] bg-primary/10 rounded-full blur-[350px] mix-blend-screen"
+                style={{ x: layer2X, y: layer1Y, willChange: 'transform, opacity' }}
+                className="absolute -top-[10%] -right-[10%] w-[45vw] h-[45vw] bg-primary/10 rounded-full blur-[150px] sm:blur-[350px] mix-blend-screen"
                 animate={{
                     opacity: [0.3, 0.6, 0.3],
                     scale: [1, 1.15, 1]
@@ -56,8 +56,8 @@ const LiquidBackground = () => {
 
             {/* Corner Flare 3: Bottom-Left */}
             <motion.div
-                style={{ x: layer1X, y: layer2Y }}
-                className="absolute -bottom-[10%] -left-[10%] w-[50vw] h-[50vh] bg-primary/15 rounded-full blur-[400px] mix-blend-screen"
+                style={{ x: layer1X, y: layer2Y, willChange: 'transform, opacity' }}
+                className="absolute -bottom-[10%] -left-[10%] w-[50vw] h-[50vh] bg-primary/15 rounded-full blur-[200px] sm:blur-[400px] mix-blend-screen"
                 animate={{
                     opacity: [0.4, 0.8, 0.4],
                     scale: [1, 1.05, 1]
@@ -67,8 +67,8 @@ const LiquidBackground = () => {
 
             {/* Corner Flare 4: Bottom-Right */}
             <motion.div
-                style={{ x: layer2X, y: layer3Y }}
-                className="absolute -bottom-[10%] -right-[10%] w-[40vw] h-[40vw] bg-primary/10 rounded-full blur-[300px] mix-blend-screen"
+                style={{ x: layer2X, y: layer3Y, willChange: 'transform, opacity' }}
+                className="absolute -bottom-[10%] -right-[10%] w-[40vw] h-[40vw] bg-primary/10 rounded-full blur-[100px] sm:blur-[300px] mix-blend-screen"
                 animate={{
                     opacity: [0.2, 0.5, 0.2],
                     scale: [1, 1.2, 1]

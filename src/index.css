@@ -11,6 +11,8 @@
 @layer utilities {
     .glass-panel {
         @apply bg-glass backdrop-blur-md border border-glass-border;
+        transform: translateZ(0);
+        backface-visibility: hidden;
     }
 
     .text-glow {
@@ -119,12 +121,30 @@
 /* Mobile-specific overrides */
 @media (max-width: 640px) {
 
+    /* Stabilize blurs and animations */
+    * {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        perspective: 1000;
+    }
+
+    /* Force GPU for anything with blur or glass effect */
+    .glass-panel,
+    [class*="blur-"],
+    .halation,
+    .halation-border {
+        transform: translateZ(0);
+        will-change: transform, opacity;
+    }
+
     /* Reduce blur effects for mobile performance */
     .backdrop-blur-md,
     .backdrop-blur-xl,
     .backdrop-blur-2xl,
     .backdrop-blur-3xl {
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
     }
 
     /* Smoother scrolling */

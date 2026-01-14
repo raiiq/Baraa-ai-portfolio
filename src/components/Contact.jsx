@@ -93,9 +93,10 @@ const Contact = () => {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                whileHover={{ y: -8, backgroundColor: 'rgba(255,255,255,0.08)' }}
+                                whileHover={window.innerWidth > 640 ? { y: -8, backgroundColor: 'rgba(255,255,255,0.08)' } : {}}
                                 whileTap={{ scale: 0.95 }}
-                                className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-white/[0.03] border border-white/5 rounded-xl sm:rounded-2xl text-gray-400 transition-all hover:text-white touch-target"
+                                style={{ willChange: 'transform, opacity' }}
+                                className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-white/[0.03] border border-white/5 rounded-xl sm:rounded-2xl text-gray-400 transition-all sm:hover:text-white touch-target"
                             >
                                 <social.icon size={18} />
                             </motion.a>
@@ -104,8 +105,8 @@ const Contact = () => {
                 </div>
 
                 {/* Form Slab */}
-                <div className="bg-white/[0.02] backdrop-blur-[50px] border border-white/5 p-6 sm:p-10 md:p-14 rounded-2xl sm:rounded-[2.5rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[100px] pointer-events-none" />
+                <div className="bg-white/[0.02] sm:backdrop-blur-[50px] border border-white/5 p-6 sm:p-10 md:p-14 rounded-2xl sm:rounded-[2.5rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                    <div className="hidden sm:block absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[100px] pointer-events-none" />
 
                     {!user && (
                         <div className="flex justify-center mb-8 sm:mb-10 relative z-10">

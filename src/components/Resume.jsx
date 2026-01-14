@@ -188,19 +188,24 @@ const Resume = () => {
 
     return (
         <section className="py-12 sm:py-20 md:py-32 px-3 sm:px-6 md:px-12 lg:px-20 relative min-h-screen flex flex-col justify-center overflow-hidden bg-black" id="resume">
-            {/* Ambient System Grid */}
-            <div className="absolute inset-0 pointer-events-none opacity-20">
+            {/* Ambient System Grid - Hidden on mobile for performance */}
+            <div className="hidden sm:block absolute inset-0 pointer-events-none opacity-20">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,59,48,0.05)_0%,transparent_50%)]" />
             </div>
+
+            {/* Simpler background for mobile */}
+            <div className="sm:hidden absolute inset-0 pointer-events-none bg-black" />
 
             <div className="w-full relative z-10 text-left">
                 {/* Global Command Header */}
                 <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-16 md:mb-32 px-0 sm:px-4">
                     <div className="max-w-3xl space-y-4 sm:space-y-6">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            style={{ willChange: 'opacity' }}
                             className="flex items-center gap-2 sm:gap-3"
                         >
                             <div className="w-6 sm:w-8 h-[1px] bg-primary shadow-[0_0_10px_rgba(255,59,48,0.5)]" />
@@ -234,12 +239,13 @@ const Resume = () => {
                     {/* Strategic Identity */}
                     <div className="lg:col-span-12 xl:col-span-4 h-full">
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            className="bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden group h-full"
+                            style={{ willChange: 'opacity' }}
+                            className="bg-white/[0.02] sm:backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden group h-full"
                         >
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full group-hover:bg-primary/20 transition-all pointer-events-none" />
+                            <div className="hidden sm:block absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full group-hover:bg-primary/20 transition-all pointer-events-none" />
 
                             <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
                                 <div className="p-3 sm:p-4 bg-primary/10 rounded-xl sm:rounded-2xl">
@@ -293,11 +299,12 @@ const Resume = () => {
                             {experience.map((job, index) => (
                                 <motion.div
                                     key={job.id}
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className="group bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-10 rounded-xl sm:rounded-[2rem] md:rounded-[2.5rem] hover:bg-white/[0.04] hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col"
+                                    transition={{ delay: window.innerWidth > 640 ? index * 0.05 : 0 }}
+                                    style={{ willChange: 'opacity' }}
+                                    className="group bg-white/[0.02] sm:backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-10 rounded-xl sm:rounded-[2rem] md:rounded-[2.5rem] sm:hover:bg-white/[0.04] sm:hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col"
                                 >
                                     <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                                         <div>
@@ -332,11 +339,12 @@ const Resume = () => {
                                 {skills.map((group, index) => (
                                     <motion.div
                                         key={group.id}
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: index * 0.05 }}
-                                        className="group bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-10 rounded-xl sm:rounded-[2rem] md:rounded-[2.5rem] hover:bg-white/[0.04] hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col h-full"
+                                        transition={{ delay: window.innerWidth > 640 ? index * 0.05 : 0 }}
+                                        style={{ willChange: 'opacity' }}
+                                        className="group bg-white/[0.02] sm:backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-10 rounded-xl sm:rounded-[2rem] md:rounded-[2.5rem] sm:hover:bg-white/[0.04] sm:hover:border-primary/40 transition-all duration-700 relative overflow-hidden flex flex-col h-full"
                                     >
                                         <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                                             <div className="flex items-center gap-2">
@@ -367,12 +375,13 @@ const Resume = () => {
 
                 {/* FULL WIDTH: VISIONARY PARAMETERS & STRATEGIC OUTPUT */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
+                    style={{ willChange: 'opacity' }}
                     className="mb-6 sm:mb-8 md:mb-12 bg-white/[0.01] border border-white/5 p-5 sm:p-8 md:p-12 lg:p-20 rounded-2xl sm:rounded-[2.5rem] md:rounded-[4rem] relative overflow-hidden"
                 >
-                    <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
+                    <div className="hidden sm:block absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none" />
 
                     <div className="flex flex-col xl:flex-row gap-10 sm:gap-16 md:gap-20">
                         {/* Header & Visionary Stats */}
@@ -420,7 +429,7 @@ const Resume = () => {
 
                         {/* Technical Mastery Dashboard */}
                         <div className="xl:w-2/3">
-                            <div className="bg-black/40 backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-12 lg:p-16 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] h-full flex flex-col justify-center">
+                            <div className="bg-black/40 sm:backdrop-blur-3xl border border-white/5 p-5 sm:p-8 md:p-12 lg:p-16 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] h-full flex flex-col justify-center">
                                 <div className="flex items-center gap-2 sm:gap-3 mb-8 sm:mb-12">
                                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                                     <h4 className="text-lg sm:text-xl font-black text-white uppercase tracking-tighter">Technical Mastery Index</h4>

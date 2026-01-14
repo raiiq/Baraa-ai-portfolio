@@ -29,7 +29,7 @@ const Hero = () => {
             {/* Background Atmosphere - Gallery Style Bloom Flare */}
             <div className="absolute inset-0 z-0">
                 {/* Intense Red Bloom Flare */}
-                <div className="absolute -bottom-[20%] -left-[20%] w-[140%] h-[140%] bg-[radial-gradient(circle_at_bottom_left,rgba(255,59,48,0.12)_0%,transparent_70%)] blur-[80px] sm:blur-[120px] animate-pulse" />
+                <div className="absolute -bottom-[20%] -left-[20%] w-[140%] h-[140%] bg-[radial-gradient(circle_at_bottom_left,rgba(255,59,48,0.12)_0%,transparent_70%)] blur-[60px] sm:blur-[120px] will-change-[opacity,transform]" />
 
                 {/* Secondary White Ambient Bloom */}
                 <div className="absolute -top-[10%] -right-[10%] w-[120%] h-[120%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.02)_0%,transparent_60%)] blur-[60px] sm:blur-[100px]" />
@@ -40,9 +40,10 @@ const Hero = () => {
 
             {/* Centered Content Slab */}
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.2 }}
+                style={{ willChange: 'opacity, transform' }}
                 className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 max-w-6xl"
             >
                 {/* Accent line - hidden on very small screens */}

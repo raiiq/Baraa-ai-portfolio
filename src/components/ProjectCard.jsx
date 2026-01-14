@@ -19,12 +19,13 @@ const ProjectCard = ({ project, onClick }) => {
     return (
         <motion.div
             onClick={() => onClick(project)}
-            className="group relative w-full aspect-video overflow-hidden rounded-xl sm:rounded-2xl md:rounded-[2.5rem] cursor-pointer bg-black/40 border border-white/5 shadow-2xl transition-all duration-700"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -10 }}
+            className="group relative w-full aspect-video overflow-hidden rounded-xl sm:rounded-2xl md:rounded-[2.5rem] cursor-pointer bg-black/40 border border-white/5 shadow-2xl"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            whileHover={window.innerWidth > 640 ? { y: -10 } : {}}
             whileTap={{ scale: 0.98 }}
+            style={{ willChange: 'transform, opacity' }}
         >
             {/* Background Image with sophisticated hover */}
             <div className="absolute inset-0 z-0 w-full h-full">
@@ -32,12 +33,12 @@ const ProjectCard = ({ project, onClick }) => {
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-105 grayscale-[0.3] group-hover:grayscale-0 brightness-[0.4] group-hover:brightness-[0.6]"
+                    className="w-full h-full object-cover object-center transition-all duration-700 sm:group-hover:scale-105 grayscale-0 sm:grayscale-[0.3] sm:group-hover:grayscale-0 brightness-[0.5] sm:brightness-[0.4] sm:group-hover:brightness-[0.6]"
                 />
             </div>
 
-            {/* Edge-lighting effect on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 halation-border rounded-xl sm:rounded-2xl md:rounded-[2rem] transition-all duration-1000 z-10 pointer-events-none" />
+            {/* Edge-lighting effect on hover - Desktop only */}
+            <div className="hidden sm:block absolute inset-0 opacity-0 group-hover:opacity-100 halation-border rounded-xl sm:rounded-2xl md:rounded-[2rem] transition-all duration-700 z-10 pointer-events-none" />
 
             {/* Quick Actions Menu - Always visible on mobile, hover on desktop */}
             <div className="absolute top-3 right-3 sm:top-6 sm:right-6 z-50 flex items-center gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 transform translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0">

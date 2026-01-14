@@ -85,9 +85,11 @@ const GlobalWormhole = () => {
                     ctx.lineWidth = p.width * pos.factor;
                     ctx.lineCap = 'round';
 
-                    // High-quality HUD glow
-                    ctx.shadowBlur = 10 * pos.factor;
-                    ctx.shadowColor = 'rgba(255, 59, 48, 0.4)';
+                    // Disable expensive shadows on small screens to prevent flickering
+                    if (window.innerWidth > 640) {
+                        ctx.shadowBlur = 10 * pos.factor;
+                        ctx.shadowColor = 'rgba(255, 59, 48, 0.4)';
+                    }
                     ctx.stroke();
                 }
             }
